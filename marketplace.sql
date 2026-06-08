@@ -164,3 +164,19 @@ SELECT review_id, order_id, review_score, review_creation_date::date
 FROM order_reviews
 WHERE review_score BETWEEN 1 AND 3
 ORDER BY review_score, review_creation_date;
+
+SELECT order_status, COUNT(order_id) AS order_count
+FROM orders
+GROUP BY order_status
+ORDER BY order_count DESC;
+
+SELECT c.category_name_english, COUNT(p.product_id) AS product_count
+FROM categories c
+LEFT JOIN products p ON p.category_id = c.category_id
+GROUP BY c.category_name_english
+ORDER BY product_count DESC;
+
+SELECT payment_type, COUNT(*) AS usage_count, ROUND(AVG(payment_value)::numeric, 2) AS avg_value
+FROM order_payments
+GROUP BY payment_type
+ORDER BY usage_count DESC;
