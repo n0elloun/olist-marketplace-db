@@ -1,14 +1,20 @@
-# Marketplace Database
+# Olist Marketplace db
 
-Реляционная база данных на основе датасета [Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce).
+Реляционная база данных на основе публичного датасета [Olist Brazilian E-Commerce](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
 
-Проектирование схем и написание  SQL запросов
+## Структура репозитория
+
+| Файл | Описание |
+|---|---|
+| `marketplace.sql` | Схема БД - создание таблиц и индексов |
+| `load_data.sql` | Загрузка данных из CSV |
+| `queries.sql` | SQL-запросы |
 
 ## Схема
 
 8 таблиц:
 
-- `customers` — покупатели с привязкой к геолокации
+- `customers` — покупатели
 - `sellers` — продавцы
 - `categories` — справочник категорий товаров
 - `products` — товары
@@ -17,6 +23,15 @@
 - `order_payments` — платежи
 - `order_reviews` — отзывы покупателей
 
+## Запросы
+
+В `queries.sql`:
+
+- статистика по статусам заказов и способам оплаты
+- топ продавцов по выручке
+- категории товаров с оценкой выше средней
+- среднее время доставки по штатам
+- ранжирование продавцов внутри штата
 
 ## Как запустить
 
