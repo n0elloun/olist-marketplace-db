@@ -149,3 +149,18 @@ CREATE INDEX idx_customers_customer_city
  
 CREATE INDEX idx_sellers_seller_city 
     ON sellers (seller_city);
+
+SELECT customer_id, customer_city, customer_state
+FROM customers
+WHERE customer_state = 'SP'
+ORDER BY customer_city;
+
+SELECT order_id, customer_id, order_status, order_purchase_timestamp
+FROM orders
+WHERE order_purchase_timestamp > '2017-12-31'
+ORDER BY order_purchase_timestamp;
+
+SELECT review_id, order_id, review_score, review_creation_date::date
+FROM order_reviews
+WHERE review_score BETWEEN 1 AND 3
+ORDER BY review_score, review_creation_date;
